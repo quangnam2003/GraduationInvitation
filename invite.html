@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời Lễ Tốt Nghiệp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <div class="graduation-icon">🎓</div>
+            <h1 class="welcome-title">Lời Mời Đặc Biệt</h1>
+            <p class="welcome-subtitle">Tôi rất vinh dự được mời bạn tham dự lễ tốt nghiệp của tôi</p>
+            
+            <div class="input-group">
+                <input type="text" class="name-input" id="nameInput" placeholder="Nhập tên của bạn..." maxlength="50">
+            </div>
+            
+            <button class="continue-btn" onclick="showInvitation()">Tiếp Tục</button>
+        </div>
+
+        <!-- Invitation Screen -->
+        <div class="invitation-screen" id="invitationScreen">
+            <div class="invitation-header">
+                <h1 class="invitation-title">Thiệp Mời Tốt Nghiệp</h1>
+                <div class="decorative-line"></div>
+                <p class="personal-greeting" id="personalGreeting">Kính gửi bạn,</p>
+            </div>
+
+            <div class="invitation-content">
+                <p>Sau những năm tháng học tập vất vả và nỗ lực không ngừng, cuối cùng tôi cũng đã đến được đích đến quan trọng này. Đây không chỉ là thành tựu của riêng tôi mà còn là kết quả của sự động viên, ủng hộ từ những người thân yêu như bạn.</p>
+                
+                <p>Tôi rất vinh dự và mong muốn được chia sẻ niềm vui này cùng bạn trong ngày trọng đại của đời tôi.</p>
+            </div>
+            <div class="avatar">
+                <img src="abcxyz.jpg" alt="Ảnh lưu niệm">
+            </div>
+            <div class="event-details">
+                <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <span class="detail-text"><strong>Thời gian:</strong> 16:00, Thứ Bảy, ngày 23 tháng 08 năm 2025</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-icon">📍</span>
+                    <span class="detail-text"><strong>Địa điểm:</strong> Hội trường Nguyễn Văn Đạo, 144 Xuân Thủy, Hà Nội</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-icon">👔</span>
+                    <span class="detail-text"><strong>Dress code:</strong> Trang phục lịch sự (áo sơ mi/polo/...)</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-icon">🎉</span>
+                    <span class="detail-text"><strong>Chương trình:</strong> Lễ trao bằng tốt nghiệp & Chụp ảnh lưu niệm</span>
+                </div>
+            </div>
+
+            <div class="closing-message">
+                <p>Sự hiện diện của bạn sẽ làm cho ngày đặc biệt này trở nên ý nghĩa hơn!</p>
+                <div class="decorative-line"></div>
+                <p style="font-weight: bold; color: #667eea;">Trân trọng cảm ơn!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let userName = '';
+
+        function showInvitation() {
+            userName = document.getElementById('nameInput').value.trim();
+            
+            if (!userName) {
+                alert('Vui lòng nhập tên của bạn!');
+                return;
+            }
+
+            // Hide welcome screen
+            document.getElementById('welcomeScreen').classList.add('hidden');
+            
+            // Show invitation screen with personalized greeting
+            const invitationScreen = document.getElementById('invitationScreen');
+            const personalGreeting = document.getElementById('personalGreeting');
+            
+            personalGreeting.textContent = `Kính gửi ${userName},`;
+            invitationScreen.classList.add('show');
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('nameInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                showInvitation();
+            }
+        });
+
+        // Auto focus on name input
+        document.getElementById('nameInput').focus();
+    </script>
+</body>
+</html>
